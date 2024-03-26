@@ -1,3 +1,29 @@
 body {
     background-color: skyblue;
 }
+/* public/css/styles.css */
+
+/* Stil für den Header */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #333; /* Hintergrundfarbe des Headers */
+    padding: 10px 0; /* Innenabstand des Headers oben und unten */
+}
+
+/* Stil für die Navigationselemente im Header */
+nav ul {
+    list-style-type: none; /* Entfernt Aufzählungspunkte */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff; /* Textfarbe der Links */
+    text-decoration: none; /* Entfernt Unterstreichungen der Links */
+    padding: 10px 20px; /* Innenabstand der Links */
+}
