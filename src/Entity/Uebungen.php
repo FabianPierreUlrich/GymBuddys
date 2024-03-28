@@ -16,14 +16,8 @@ class Uebungen
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?float $weight = null;
-
     #[ORM\Column]
-    private ?float $sets = null;
-
-    #[ORM\Column]
-    private ?float $repetitions = null;
+    private ?int $plan_id = null;
 
     public function getId(): ?int
     {
@@ -42,38 +36,14 @@ class Uebungen
         return $this;
     }
 
-    public function getWeight(): ?float
+    public function getPlanId(): ?int
     {
-        return $this->weight;
+        return $this->plan_id;
     }
 
-    public function setWeight(?float $weight): static
+    public function setPlanId(int $plan_id): static
     {
-        $this->weight = $weight;
-
-        return $this;
-    }
-
-    public function getSets(): ?float
-    {
-        return $this->sets;
-    }
-
-    public function setSets(float $sets): static
-    {
-        $this->sets = $sets;
-
-        return $this;
-    }
-
-    public function getRepetitions(): ?float
-    {
-        return $this->repetitions;
-    }
-
-    public function setRepetitions(float $repetitions): static
-    {
-        $this->repetitions = $repetitions;
+        $this->plan_id = $plan_id;
 
         return $this;
     }

@@ -15,6 +15,7 @@
                 {% if app.user %}
                 <li><a href="/logout">Logout</a></li>
                 <li><a href="/create_trainingsplan">Neuer Plan</a></li>
+                <li><a href={{ path('app_trainingsplaene', {'id': app.user.id}) }}>Meine Pläne</a></li>
                 {% else %}
                 <li><a href="/login">Login</a></li>
                 {% endif %}

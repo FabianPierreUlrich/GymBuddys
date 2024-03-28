@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/list.css') }}">
+{% endblock %}
+
+{% block body %}
+    <a href={{ path('app_neue_uebung', {'id': planId}) }} class="btn btn-primary">Neue Übung</a>
+    <ul class="plan-list">
+        {% for exercise in uebungen %}
+            <li class="plan-list-item">
+                {{ exercise.name }}
+                <a href={{ path('app_erstelle_stats', {'id': exercise.id}) }}>Werte hinzufügen</a>
+            </li>
+            <ul>
+            {% for stat in stats %}
+                {% if stat.getUebungId() == exercise.id %}
+                     <li>
+                        Gewicht: {{ stat.getWeight() }}
+                        Sätze: {{ stat.getSets() }}
+                        Wiederholungen: {{ stat.getRepetitions()}}
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+        {% endfor %}
+    </ul>
+{% endblock %}

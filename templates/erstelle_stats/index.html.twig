@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
-    <h1>Create New Training Plan</h1>
+    <h1>Trainingswerte hinzufügen</h1>
     {{ form_start(form) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.description) }}
+        {{ form_row(form.weight) }}
+        {{ form_row(form.sets) }}
+        {{ form_row(form.repetitions)}}
         <button type="submit" class="btn btn-primary">Save</button>
     {{ form_end(form) }}
 {% endblock %}

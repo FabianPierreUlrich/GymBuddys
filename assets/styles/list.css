@@ -1,0 +1,21 @@
+ /* Add some styling to make the list look nicer */
+ .plan-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plan-list-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.plan-list-item:hover {
+    background-color: #f0f0f0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}

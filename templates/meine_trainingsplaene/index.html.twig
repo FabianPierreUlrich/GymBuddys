@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MeineTrainingsplaeneController!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/list.css') }}">
+{% endblock %}
+
+{% block body %}
+<ul class="plan-list">
+    {% for plan in plaene %}
+        <a href="{{ path('app_meine_uebungen', {'id': plan.id}) }}">
+            <li class="plan-list-item">
+                {{ plan.name }}
+            </li>
+        </a>
+    {% endfor %}
+</ul>
+{% endblock %}
+
