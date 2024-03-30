@@ -10,9 +10,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class MeineTrainingsplaeneController extends AbstractController
 {
-    private $entityManager; // Deklariere eine Variable für den EntityManager
+    private $entityManager;
 
-    // Injiziere den EntityManager durch den Konstruktor
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -24,7 +23,6 @@ class MeineTrainingsplaeneController extends AbstractController
         $plaene = $repository->findBy(['user_id' => $id]);
 
         return $this->render('meine_trainingsplaene/index.html.twig', [
-            'controller_name' => 'MeineTrainingsplaeneController',
             'plaene' => $plaene,
         ]);
     }

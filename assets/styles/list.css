@@ -1,5 +1,4 @@
- /* Add some styling to make the list look nicer */
- .plan-list {
+.plan-list {
     list-style-type: none;
     padding: 0;
 }

@@ -11,9 +11,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class MeineUebungenController extends AbstractController
 {
-    private $entityManager; // Deklariere eine Variable für den EntityManager
+    private $entityManager;
 
-    // Injiziere den EntityManager durch den Konstruktor
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -29,7 +28,6 @@ class MeineUebungenController extends AbstractController
             $stats[] = $statsRepository->findBy(['uebung_id' => $uebung->getId()]);
         }
         return $this->render('meine_uebungen/index.html.twig', [
-            'controller_name' => 'MeineUebungenController',
             'uebungen' => $uebungen,
             'planId' => $id,
             'stats' => $stats[0] ?? [],

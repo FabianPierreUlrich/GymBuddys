@@ -1,9 +1,14 @@
-{# templates/exercise/create.html.twig #}
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/form.css') }}">
+{% endblock %}
+
 
 {% block body %}
     <h1>Übung erstellen</h1>
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'class': "form"}}) }}
     {{ form_row(form.name) }}
     <button type="submit" class="btn btn-primary">Übung erstellen</button>
     {{ form_end(form) }}

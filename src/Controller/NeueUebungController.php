@@ -12,9 +12,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class NeueUebungController extends AbstractController
 {
-    private $entityManager; // Deklariere eine Variable für den EntityManager
+    private $entityManager;
 
-    // Injiziere den EntityManager durch den Konstruktor
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -27,13 +26,10 @@ class NeueUebungController extends AbstractController
         $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) 
             {
-                // Daten des Formulars speichern oder verarbeiten
                 $formdata = $form->getData();
                 $formdata->setPlanId($id);
                 $this->entityManager->persist($form->getData());
                 $this->entityManager->flush();
-    
-                // Weiterleitung oder Erfolgsmeldung anzeigen
             }
     
         return $this->render('neue_uebung/index.html.twig', [

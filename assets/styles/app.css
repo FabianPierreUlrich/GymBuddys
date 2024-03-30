@@ -1,19 +1,20 @@
 body {
-    background-color: skyblue;
+    background-color: rgb(255, 255, 255);
 }
-/* public/css/styles.css */
-
-/* Stil für den Header */
 header {
     position: sticky;
     top: 0;
-    background-color: #333; /* Hintergrundfarbe des Headers */
-    padding: 10px 0; /* Innenabstand des Headers oben und unten */
+    background-color: #333; 
+    padding: 10px 0; 
+    text-align: center;
 }
 
-/* Stil für die Navigationselemente im Header */
+h1 {
+    text-align: center;
+}
+
 nav ul {
-    list-style-type: none; /* Entfernt Aufzählungspunkte */
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
@@ -23,7 +24,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff; /* Textfarbe der Links */
-    text-decoration: none; /* Entfernt Unterstreichungen der Links */
-    padding: 10px 20px; /* Innenabstand der Links */
+    color: #fff; 
+    text-decoration: none;
+    padding: 10px 20px;
 }

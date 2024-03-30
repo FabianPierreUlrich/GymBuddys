@@ -14,9 +14,8 @@ use Symfony\Component\Routing\Attribute\Route;
 class ErstelleStatsController extends AbstractController
 
 {
-    private $entityManager; // Deklariere eine Variable für den EntityManager
+    private $entityManager;
 
-    // Injiziere den EntityManager durch den Konstruktor
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -29,9 +28,7 @@ class ErstelleStatsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Hier kannst du die User-ID setzen
             $yourEntity->setUebungId($id);
-            // Das Entity persistieren
             $this->entityManager->persist($yourEntity);
             $this->entityManager->flush();
 
@@ -41,7 +38,6 @@ class ErstelleStatsController extends AbstractController
        
 
         return $this->render('erstelle_stats/index.html.twig', [
-            'controller_name' => 'ErstelleStatsController',
             'form' => $form->createView(),
 
         ]);
