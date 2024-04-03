@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MeineTrainingsplaeneController!{% endblock %}
+{% block title %}Meine Pläne{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -12,7 +12,11 @@
     {% for plan in plaene %}
         <a href="{{ path('app_meine_uebungen', {'id': plan.id}) }}">
             <li class="plan-list-item">
-                {{ plan.name }}
+            <strong>
+                Name: {{ plan.name }}
+            </strong>
+            </br>
+                Beschreibung: {{ plan.description }}
             </li>
         </a>
     {% endfor %}

@@ -32,7 +32,7 @@ class ErstelleTrainingsplanController extends AbstractController
             $this->entityManager->persist($yourEntity);
             $this->entityManager->flush();
 
-            return $this->redirectToRoute('app_gym_buddys');
+            return $this->redirectToRoute('app_trainingsplaene', ["id"=>$this->getUser()->getId()]);
         }
         return $this->render('erstelle_trainingsplan/index.html.twig', [
             'form' => $form->createView(),
