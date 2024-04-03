@@ -9,17 +9,19 @@
 
 {% block body %}
 <ul class="plan-list">
+    <div class="border">
     {% for plan in plaene %}
         <a href="{{ path('app_meine_uebungen', {'id': plan.id}) }}">
             <li class="plan-list-item">
-            <strong>
-                Name: {{ plan.name }}
-            </strong>
-            </br>
+                <strong>
+                Trainingsplan: {{ plan.name }}
+                </strong>
+                </br>
                 Beschreibung: {{ plan.description }}
             </li>
         </a>
     {% endfor %}
+    </div>
 </ul>
 {% endblock %}
 

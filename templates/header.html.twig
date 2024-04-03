@@ -9,12 +9,12 @@
         <nav>
             <ul>
                 <li><a href={{ path('app_gym_buddys')}}>Home</a></li>
-                <li><a href={{ path('app_about')}}>About</a></li>
-                <li><a href={{ path('app_contact')}}>Contact</a></li>
+                <li><a href={{ path('app_about')}}>Über uns</a></li>
+                <li><a href={{ path('app_contact')}}>Kontakt</a></li>
                 {% if app.user %}
-                <li><a href={{ path('app_logout')}}>Logout</a></li>
                 <li><a href={{ path('app_erstelle_trainingsplan')}}>Neuer Plan</a></li>
                 <li><a href={{ path('app_trainingsplaene', {'id': app.user.id}) }}>Meine Pläne</a></li>
+                <li><a href={{ path('app_logout')}}>Logout</a></li>
                 {% else %}
                 <li><a href={{ path("app_login")}}>Login</a></li>
                 {% endif %}
