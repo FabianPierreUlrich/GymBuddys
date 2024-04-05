@@ -22,3 +22,9 @@ a {
     border: solid 2px black;
     border-radius: 15px;
 }
+.new_exc_btn{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: red;
+}

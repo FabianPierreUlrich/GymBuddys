@@ -30,6 +30,7 @@ class NeueUebungController extends AbstractController
                 $formdata->setPlanId($id);
                 $this->entityManager->persist($form->getData());
                 $this->entityManager->flush();
+                return $this->redirectToRoute('app_trainingsplaene', ["id"=>$this->getUser()->getId()]);
             }
     
         return $this->render('neue_uebung/index.html.twig', [

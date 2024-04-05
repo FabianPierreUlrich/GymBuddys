@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <a href={{ path('app_neue_uebung', {'id': planId}) }} class="btn btn-primary">Neue Übung</a>
+    <a href={{ path('app_neue_uebung', {'id': planId}) }} class="btn btn-primary new_exc_btn">Neue Übung</a>
     <ul class="plan-list">
         {% for exercise in uebungen %}
             <li class="plan-list-item">

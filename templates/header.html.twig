@@ -16,7 +16,8 @@
                 <li><a href={{ path('app_trainingsplaene', {'id': app.user.id}) }}>Meine Pläne</a></li>
                 <li><a href={{ path('app_logout')}}>Logout</a></li>
                 {% else %}
-                <li><a href={{ path("app_login")}}>Login</a></li>
+                <li><a href={{ path('app_login')}}>Login</a></li>
+                <li><a href={{ path('app_register')}}>Registrieren</a></li>
                 {% endif %}
             </ul>
         </nav>
