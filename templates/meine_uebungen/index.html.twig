@@ -18,8 +18,9 @@
             {% for stat in stats %}
                 {% if stat.getUebungId() == exercise.id %}
                      <li>
+                        Datum: {{ stat.getDate|date('d-m-Y')}}
                         Gewicht: {{ stat.getWeight() }}
-                        Sätze: {{ stat.getSets() }}
+                        Sätze: {{ stat.getSetNr() }}
                         Wiederholungen: {{ stat.getRepetitions()}}
                     </li>
                 {% endif %}

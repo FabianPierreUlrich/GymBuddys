@@ -14,7 +14,7 @@ class AddStatsType extends AbstractType
     {
         $builder
             ->add('weight')
-            ->add('set')
+            ->add('set_nr')
             ->add('repetitions')
             ->add('date',DateType::class,[
                  'widget'=>'single_text',
