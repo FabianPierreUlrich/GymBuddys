@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Stats;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,8 +14,12 @@ class AddStatsType extends AbstractType
     {
         $builder
             ->add('weight')
-            ->add('sets')
+            ->add('set')
             ->add('repetitions')
+            ->add('date',DateType::class,[
+                 'widget'=>'single_text',
+                 #'input'=>'datetime_immutable'
+                ])
         ;
     }
 

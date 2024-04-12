@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\StatsRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 #[ORM\Entity(repositoryClass: StatsRepository::class)]
 class Stats
@@ -17,13 +19,16 @@ class Stats
     private ?float $weight = null;
 
     #[ORM\Column]
-    private ?float $sets = null;
+    private ?float $set = null;
 
     #[ORM\Column]
     private ?int $repetitions = null;
 
     #[ORM\Column]
     private ?int $uebung_id = null;
+
+    #[ORM\Column]
+    private ?DateTime $date = null;
 
     public function getId(): ?int
     {
@@ -42,14 +47,14 @@ class Stats
         return $this;
     }
 
-    public function getSets(): ?float
+    public function getset(): ?float
     {
-        return $this->sets;
+        return $this->set;
     }
 
-    public function setSets(float $sets): static
+    public function setSet(float $set): static
     {
-        $this->sets = $sets;
+        $this->set = $set;
 
         return $this;
     }
@@ -74,6 +79,18 @@ class Stats
     public function setUebungId(int $uebung_id): static
     {
         $this->uebung_id = $uebung_id;
+
+        return $this;
+    }
+
+    public function getDate(): ?DateTime
+    {
+        return $this->date;
+    }
+
+    public function setDate(DateTime $date): static
+    {
+        $this->date = $date;
 
         return $this;
     }

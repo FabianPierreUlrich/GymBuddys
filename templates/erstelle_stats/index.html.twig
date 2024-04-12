@@ -5,8 +5,9 @@
 {% block body %}
     <h1>Trainingswerte hinzufügen</h1>
     {{ form_start(form) }}
+        {{ form_row(form.date) }}
         {{ form_row(form.weight) }}
-        {{ form_row(form.sets) }}
+        {{ form_row(form.set) }}
         {{ form_row(form.repetitions)}}
         <button type="submit" class="btn btn-primary">Save</button>
     {{ form_end(form) }}
