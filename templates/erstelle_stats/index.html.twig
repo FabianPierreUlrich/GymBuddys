@@ -2,13 +2,18 @@
 
 {% block title %}Trainingswerte{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/form.css') }}">
+{% endblock %}
+
 {% block body %}
     <h1>Trainingswerte hinzufügen</h1>
-    {{ form_start(form) }}
-        {{ form_row(form.date) }}
-        {{ form_row(form.weight) }}
-        {{ form_row(form.set_nr) }}
-        {{ form_row(form.repetitions)}}
-        <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_start(form, {'attr': {'class': "form"}}) }}
+        {{ form_row(form.date, {'label' : 'Datum'}) }}
+        {{ form_row(form.weight, {'label': 'Gewicht'}) }}
+        {{ form_row(form.set_nr, {'label': 'Satz-Nummer'}) }}
+        {{ form_row(form.repetitions, {'label': 'Wiederholungen'}) }}
+        <button type="submit" class="btn btn-primary">Speichern</button>
     {{ form_end(form) }}
 {% endblock %}
