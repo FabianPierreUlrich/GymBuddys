@@ -7,20 +7,24 @@
 {% endblock %}
 
 {% block body %}
-    <a href={{ path('app_neue_uebung', {'id': planId}) }} class="btn btn-primary new_exc_btn"><button>Neue Übung</button></a>
+    <div class="btn-wrapper">
+        <a href={{ path('app_neue_uebung', {'id': planId}) }} ><button class="btn-ne">Neue Übung</button></a>
+    </div>
     <ul class="plan-list">
         {% for exercise in uebungen %}
-            <li class="plan-list-item">
-                {{ exercise.name }}
-                <a href={{ path('app_erstelle_stats', {'id': exercise.id}) }}>Werte hinzufügen</a>
-            </li>
+            <a href={{ path('app_erstelle_stats', {'id': exercise.id}) }}>
+                <li class="plan-list-item">
+                    {{ exercise.name }}
+                    Werte hinzufügen
+                </li>
+            </a>
             <ul>
             {% for stat in stats %}
                 {% if stat.getUebungId() == exercise.id %}
                      <li>
                         Datum: {{ stat.getDate|date('d-m-Y')}}
                         Gewicht: {{ stat.getWeight() }}
-                        Sätze: {{ stat.getSetNr() }}
+                        Satz-Nr: {{ stat.getSetNr() }}
                         Wiederholungen: {{ stat.getRepetitions()}}
                     </li>
                 {% endif %}
