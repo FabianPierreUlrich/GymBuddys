@@ -6,9 +6,10 @@
 .plan-list-item {
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #404040;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 .plan-list-item:hover {
@@ -23,11 +24,16 @@ a {
     padding: 16px 24px;
 }
 .btn-ne{
-    width: 15%;
+    width: 175px;
+    height: 35px;
     box-sizing: border-box;
     touch-action: manipulation;
     font-size: large;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 1px;
+    background-color: #404040;
+    color: white;
 }
-
+.spacer {
+    height: 25px;
+}

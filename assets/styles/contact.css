@@ -10,8 +10,7 @@ p{
 
 p.contact{
     text-align: center;
-    border: solid 2px black;
-    border-radius: 15px;
+    border: solid 1px #404040;
 }
 
 p.klein{

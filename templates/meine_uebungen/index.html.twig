@@ -21,6 +21,7 @@
             <ul>
             {% for stat in stats %}
                 {% if stat.getUebungId() == exercise.id %}
+                
                      <li>
                         Datum: {{ stat.getDate|date('d-m-Y')}}
                         Gewicht: {{ stat.getWeight() }}
@@ -30,6 +31,7 @@
                 {% endif %}
             {% endfor %}
             </ul>
+            <div class="spacer"></div>
 
         {% endfor %}
     </ul>
