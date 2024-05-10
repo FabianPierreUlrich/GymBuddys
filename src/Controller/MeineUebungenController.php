@@ -25,12 +25,15 @@ class MeineUebungenController extends AbstractController
         $statsRepository = $this->entityManager->getRepository(Stats::class);
         $stats = [];
         foreach ($uebungen as $uebung){
-            $stats[] = $statsRepository->findBy(['uebung_id' => $uebung->getId()]);
+            $newstat= $statsRepository->findBy(['uebung_id' => $uebung->getId()]);
+        foreach ($newstat as $new){
+            array_push($stats, $new);
+        }
         }
         return $this->render('meine_uebungen/index.html.twig', [
             'uebungen' => $uebungen,
             'planId' => $id,
-            'stats' => $stats[0] ?? [],
+            'stats' => $stats ?? [],
         ]);
     }
 }

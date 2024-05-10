@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Stats;
+use App\Entity\TrainingsPlan;
+use App\Entity\Uebungen;
 use App\Form\AddStatsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,6 +26,7 @@ class ErstelleStatsController extends AbstractController
     public function index(Request $request,$id): Response
     {
         $yourEntity = new Stats();
+        $uebungenRepository = $this->entityManager->getRepository(Uebungen::class);
         $form = $this->createForm(AddStatsType::class, $yourEntity);
         $form->handleRequest($request);
 
@@ -31,9 +34,10 @@ class ErstelleStatsController extends AbstractController
             $yourEntity->setUebungId($id);
             $this->entityManager->persist($yourEntity);
             $this->entityManager->flush();
-
-            return $this->redirectToRoute('app_meine_uebungen', ['id' => $yourEntity->getUebungId()]);
-            
+            $uebung = $uebungenRepository->findBy(["id"=>$yourEntity->getUebungId()]);
+            #dd($uebung);
+            $id = $uebung[0]->getPlanId();
+            return $this->redirectToRoute('app_meine_uebungen', ["id"=>$id]);
         }
        
 
