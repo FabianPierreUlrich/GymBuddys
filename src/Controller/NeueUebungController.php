@@ -21,8 +21,8 @@ class NeueUebungController extends AbstractController
     #[Route('/neue_uebung/{id}', name: 'app_neue_uebung')]
     public function index(Request $request,$id): Response
     {
-        $yourEntity = new Uebungen();
-        $form = $this->createForm(NeueUebungFormType::class,$yourEntity);
+        $uebungEntity = new Uebungen();
+        $form = $this->createForm(NeueUebungFormType::class,$uebungEntity);
         $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) 
             {

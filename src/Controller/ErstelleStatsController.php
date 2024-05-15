@@ -25,16 +25,16 @@ class ErstelleStatsController extends AbstractController
     #[Route('/stats/{id}', name: 'app_erstelle_stats')]
     public function index(Request $request,$id): Response
     {
-        $yourEntity = new Stats();
+        $statsEntity = new Stats();
         $uebungenRepository = $this->entityManager->getRepository(Uebungen::class);
-        $form = $this->createForm(AddStatsType::class, $yourEntity);
+        $form = $this->createForm(AddStatsType::class, $statsEntity);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $yourEntity->setUebungId($id);
-            $this->entityManager->persist($yourEntity);
+            $statsEntity->setUebungId($id);
+            $this->entityManager->persist($statsEntity);
             $this->entityManager->flush();
-            $uebung = $uebungenRepository->findBy(["id"=>$yourEntity->getUebungId()]);
+            $uebung = $uebungenRepository->findBy(["id"=>$statsEntity->getUebungId()]);
             #dd($uebung);
             $id = $uebung[0]->getPlanId();
             return $this->redirectToRoute('app_meine_uebungen', ["id"=>$id]);

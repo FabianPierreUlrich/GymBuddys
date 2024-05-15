@@ -22,14 +22,14 @@ class ErstelleTrainingsplanController extends AbstractController
     #[Route('/create_trainingsplan', name: 'app_erstelle_trainingsplan')]
     public function index(Request $request): Response
     {
-        $yourEntity = new TrainingsPlan();
-        $form = $this->createForm(ErstelleTrainingsplanType::class, $yourEntity);
+        $planEntity = new TrainingsPlan();
+        $form = $this->createForm(ErstelleTrainingsplanType::class, $planEntity);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $yourEntity->setUserId($this->getUser()->getId());
+            $planEntity->setUserId($this->getUser()->getId());
 
-            $this->entityManager->persist($yourEntity);
+            $this->entityManager->persist($planEntity);
             $this->entityManager->flush();
 
             return $this->redirectToRoute('app_trainingsplaene', ["id"=>$this->getUser()->getId()]);
